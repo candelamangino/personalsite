@@ -1,67 +1,118 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const ArtGallerySection = () => {
-  const [selectedArtwork, setSelectedArtwork] = useState(null);
   const [hoveredArtwork, setHoveredArtwork] = useState(null);
 
-  const artworks = [
+  // Datos de arte organizados por categorías
+  const artCategories = [
     {
-      id: 1,
-      title: 'Cian Pulse',
-      category: 'Digital Art',
-      description: 'Exploración de formas orgánicas en el espacio digital',
-      image: '/api/placeholder/400/300',
-      color: '#00bcd4'
+      id: 'digital',
+      title: 'Arte Digital',
+      icon: '🎨',
+      color: '#007AFF',
+      artworks: [
+        {
+          id: 1,
+          title: 'Cian Pulse',
+          description: 'Exploración de formas orgánicas en el espacio digital',
+          instagramUrl: 'https://www.instagram.com/p/example1/',
+          imageUrl: 'https://via.placeholder.com/400x300/00BCD4/FFFFFF?text=Digital+Art+1'
+        },
+        {
+          id: 2,
+          title: 'Teal Nebula',
+          description: 'Una nebulosa de emociones y colores',
+          instagramUrl: 'https://www.instagram.com/p/example2/',
+          imageUrl: 'https://via.placeholder.com/400x300/009688/FFFFFF?text=Digital+Art+2'
+        },
+        {
+          id: 3,
+          title: 'Violet Echo',
+          description: 'Patrones geométricos que resuenan',
+          instagramUrl: 'https://www.instagram.com/p/example3/',
+          imageUrl: 'https://via.placeholder.com/400x300/7C4DFF/FFFFFF?text=Digital+Art+3'
+        },
+        {
+          id: 4,
+          title: 'Red-Violet Bloom',
+          description: 'La naturaleza florece en colores vibrantes',
+          instagramUrl: 'https://www.instagram.com/p/example4/',
+          imageUrl: 'https://via.placeholder.com/400x300/C2185B/FFFFFF?text=Digital+Art+4'
+        }
+      ]
     },
     {
-      id: 2,
-      title: 'Teal Nebula',
-      category: 'Abstract',
-      description: 'Una nebulosa de emociones y colores',
-      image: '/api/placeholder/400/300',
-      color: '#009688'
+      id: 'oil',
+      title: 'Óleo sobre Lienzo',
+      icon: '🖌️',
+      color: '#FF9500',
+      artworks: [
+        {
+          id: 5,
+          title: 'Atardecer Montevideano',
+          description: 'Capturando la magia del Río de la Plata',
+          instagramUrl: 'https://www.instagram.com/p/example5/',
+          imageUrl: 'https://via.placeholder.com/400x300/FF9500/FFFFFF?text=Oil+Painting+1'
+        },
+        {
+          id: 6,
+          title: 'Retrato Abstracto',
+          description: 'Emociones plasmadas en pinceladas',
+          instagramUrl: 'https://www.instagram.com/p/example6/',
+          imageUrl: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=Oil+Painting+2'
+        },
+        {
+          id: 7,
+          title: 'Naturaleza Viva',
+          description: 'La esencia de la vida en cada trazo',
+          instagramUrl: 'https://www.instagram.com/p/example7/',
+          imageUrl: 'https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Oil+Painting+3'
+        }
+      ]
     },
     {
-      id: 3,
-      title: 'Violet Echo',
-      category: 'Geometric',
-      description: 'Patrones geométricos que resuenan',
-      image: '/api/placeholder/400/300',
-      color: '#7c4dff'
-    },
-    {
-      id: 4,
-      title: 'Red-Violet Bloom',
-      category: 'Nature',
-      description: 'La naturaleza florece en colores vibrantes',
-      image: '/api/placeholder/400/300',
-      color: '#c2185b'
-    },
-    {
-      id: 5,
-      title: 'Golden Spiral',
-      category: 'Mathematical',
-      description: 'La belleza de las matemáticas en el arte',
-      image: '/api/placeholder/400/300',
-      color: '#ff9800'
-    },
-    {
-      id: 6,
-      title: 'Ocean Depths',
-      category: 'Abstract',
-      description: 'Profundidades del océano en movimiento',
-      image: '/api/placeholder/400/300',
-      color: '#2196f3'
+      id: 'pencil',
+      title: 'Dibujos a Lápiz',
+      icon: '✏️',
+      color: '#8E8E93',
+      artworks: [
+        {
+          id: 8,
+          title: 'Estudio de Líneas',
+          description: 'La simplicidad del grafito',
+          instagramUrl: 'https://www.instagram.com/p/example8/',
+          imageUrl: 'https://via.placeholder.com/400x300/8E8E93/FFFFFF?text=Pencil+Drawing+1'
+        },
+        {
+          id: 9,
+          title: 'Retrato Detallado',
+          description: 'Cada línea cuenta una historia',
+          instagramUrl: 'https://www.instagram.com/p/example9/',
+          imageUrl: 'https://via.placeholder.com/400x300/6D6D70/FFFFFF?text=Pencil+Drawing+2'
+        },
+        {
+          id: 10,
+          title: 'Arquitectura Urbana',
+          description: 'Montevideo en trazos de grafito',
+          instagramUrl: 'https://www.instagram.com/p/example10/',
+          imageUrl: 'https://via.placeholder.com/400x300/5A5A5D/FFFFFF?text=Pencil+Drawing+3'
+        },
+        {
+          id: 11,
+          title: 'Estudio Anatómico',
+          description: 'La belleza de la forma humana',
+          instagramUrl: 'https://www.instagram.com/p/example11/',
+          imageUrl: 'https://via.placeholder.com/400x300/48484A/FFFFFF?text=Pencil+Drawing+4'
+        }
+      ]
     }
   ];
-
-  const categories = ['All', 'Digital Art', 'Abstract', 'Geometric', 'Nature', 'Mathematical'];
-  const [activeCategory, setActiveCategory] = useState('All');
-
-  const filteredArtworks = activeCategory === 'All' 
-    ? artworks 
-    : artworks.filter(artwork => artwork.category === activeCategory);
 
   return (
     <section id="art" className="section art-section">
@@ -73,125 +124,195 @@ const ArtGallerySection = () => {
           transition={{ duration: 0.8, ease: "power2.out" }}
           viewport={{ once: true }}
         >
-          <h2 className="section-title">Arte y Creatividad</h2>
+          <h2 className="section-title">Mi Arte</h2>
           <p className="section-description">
             El color es mi lengua materna. Me inspiran los atardeceres del Río de la Plata, 
             la música electrónica y el juego de luces en las calles lluviosas.
           </p>
         </motion.div>
 
+        <div className="art-categories-container">
+          {artCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.id}
+              className="art-category-section"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="category-header"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.3 }}
+                viewport={{ once: true }}
+              >
+                <div className="category-title-container">
+                  <span 
+                    className="category-icon"
+                    style={{ color: category.color }}
+                  >
+                    {category.icon}
+                  </span>
+                  <h3 className="category-title">{category.title}</h3>
+                </div>
+                <div 
+                  className="category-line"
+                  style={{ backgroundColor: category.color }}
+                />
+              </motion.div>
+
+              <motion.div 
+                className="artworks-carousel"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.5 }}
+                viewport={{ once: true }}
+              >
+                <Swiper
+                  modules={[Autoplay, Navigation, Pagination]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 4500,
+                    disableOnInteraction: false,
+                  }}
+                  navigation={{
+                    nextEl: `.swiper-button-next-${category.id}`,
+                    prevEl: `.swiper-button-prev-${category.id}`,
+                  }}
+                  pagination={{
+                    clickable: true,
+                    el: `.swiper-pagination-${category.id}`,
+                  }}
+                  className={`artworks-swiper artworks-swiper-${category.id}`}
+                  breakpoints={{
+                    768: {
+                      slidesPerView: 2,
+                      spaceBetween: 20,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                      spaceBetween: 30,
+                    },
+                    1200: {
+                      slidesPerView: 4,
+                      spaceBetween: 30,
+                    }
+                  }}
+                >
+                  {category.artworks.map((artwork, artworkIndex) => (
+                    <SwiperSlide key={artwork.id}>
+                      <motion.div
+                        className="artwork-card"
+                        onMouseEnter={() => setHoveredArtwork(artwork.id)}
+                        onMouseLeave={() => setHoveredArtwork(null)}
+                        initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ 
+                          duration: 0.6, 
+                          delay: categoryIndex * 0.2 + artworkIndex * 0.1,
+                          ease: "easeOut"
+                        }}
+                        whileHover={{ 
+                          y: -8, 
+                          scale: 1.05,
+                          transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <motion.div 
+                          className="artwork-glow"
+                          initial={{ opacity: 0 }}
+                          whileHover={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                          style={{ 
+                            background: `linear-gradient(135deg, ${category.color}30, ${category.color}10)`
+                          }}
+                        />
+                        
+                        <div className="artwork-image-container">
+                          <img 
+                            src={artwork.imageUrl} 
+                            alt={artwork.title}
+                            className="artwork-image"
+                            loading="lazy"
+                          />
+                          <motion.div 
+                            className="artwork-overlay"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: hoveredArtwork === artwork.id ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            <motion.a
+                              href={artwork.instagramUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="instagram-link"
+                              whileHover={{ scale: 1.1 }}
+                              whileTap={{ scale: 0.95 }}
+                            >
+                              <span className="instagram-icon">↗️</span>
+                            </motion.a>
+                          </motion.div>
+                        </div>
+                        
+                        <div className="artwork-info">
+                          <h4 className="artwork-title">{artwork.title}</h4>
+                          <p className="artwork-description">{artwork.description}</p>
+                        </div>
+                      </motion.div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                {/* Navigation buttons */}
+                <button 
+                  className={`swiper-button-prev swiper-button-prev-${category.id}`}
+                  style={{ color: category.color }}
+                >
+                  ‹
+                </button>
+                <button 
+                  className={`swiper-button-next swiper-button-next-${category.id}`}
+                  style={{ color: category.color }}
+                >
+                  ›
+                </button>
+
+                {/* Pagination */}
+                <div className={`swiper-pagination swiper-pagination-${category.id}`} />
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
         <motion.div 
-          className="art-categories reveal"
+          className="art-footer reveal"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
         >
-          {categories.map((category) => (
-            <motion.button
-              key={category}
-              className={`category-btn ${activeCategory === category ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {category}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        <motion.div 
-          className="art-gallery"
-          layout
-        >
-          {filteredArtworks.map((artwork, index) => (
-            <motion.div
-              key={artwork.id}
-              className={`artwork-card ${hoveredArtwork === artwork.id ? 'hovered' : ''}`}
-              onMouseEnter={() => setHoveredArtwork(artwork.id)}
-              onMouseLeave={() => setHoveredArtwork(null)}
-              onClick={() => setSelectedArtwork(artwork)}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, scale: 1.05 }}
-              layout
-            >
-              <div 
-                className="artwork-image"
-                style={{ backgroundColor: artwork.color }}
-              >
-                <div className="artwork-placeholder">
-                  <span className="artwork-icon">🎨</span>
-                </div>
-                <motion.div 
-                  className="artwork-overlay"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: hoveredArtwork === artwork.id ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="view-icon">👁️</span>
-                </motion.div>
-              </div>
-              
-              <div className="artwork-info">
-                <h3 className="artwork-title">{artwork.title}</h3>
-                <span className="artwork-category">{artwork.category}</span>
-                <motion.p 
-                  className="artwork-description"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ 
-                    height: hoveredArtwork === artwork.id ? 'auto' : 0,
-                    opacity: hoveredArtwork === artwork.id ? 1 : 0
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {artwork.description}
-                </motion.p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Modal para vista ampliada */}
-        {selectedArtwork && (
-          <motion.div 
-            className="artwork-modal"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedArtwork(null)}
+          <motion.a
+            href="https://www.instagram.com/cande_mangino.arte"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="instagram-profile-button"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <motion.div 
-              className="modal-content"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
+            <span className="instagram-text">Ver más en Instagram</span>
+            <motion.span 
+              className="instagram-arrow"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <button 
-                className="modal-close"
-                onClick={() => setSelectedArtwork(null)}
-              >
-                ×
-              </button>
-              <div 
-                className="modal-image"
-                style={{ backgroundColor: selectedArtwork.color }}
-              >
-                <div className="modal-placeholder">
-                  <span className="modal-icon">🎨</span>
-                </div>
-              </div>
-              <div className="modal-info">
-                <h3>{selectedArtwork.title}</h3>
-                <span className="modal-category">{selectedArtwork.category}</span>
-                <p>{selectedArtwork.description}</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
+              ↗️
+            </motion.span>
+          </motion.a>
+        </motion.div>
       </div>
     </section>
   );
