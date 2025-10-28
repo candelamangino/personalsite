@@ -1,59 +1,77 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import LanguageToggle from './components/LanguageToggle';
-import Hero from './sections/Hero';
-import About from './sections/About';
-import Skills from './sections/Skills';
-import Experience from './sections/Experience';
-import Projects from './sections/Projects';
-import Art from './sections/Art';
-import Human from './sections/Human';
-import Contact from './sections/Contact';
-import FloatingOrbs from './components/FloatingOrbs';
+import { useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import HomeSection from './sections/HomeSection';
+import AboutMeSection from './sections/AboutMeSection';
+import ExperienceSection from './sections/ExperienceSection';
+import ArtGallerySection from './sections/ArtGallerySection';
+import ProjectsSection from './sections/ProjectsSection';
+import ContactSection from './sections/ContactSection';
+import Navigation from './components/Navigation';
+import './styles/global.css';
+
+// Registrar plugins de GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    // Configurar animaciones globales de scroll
+    gsap.utils.toArray('.section').forEach((section, index) => {
+      gsap.fromTo(section, 
+        { 
+          opacity: 0, 
+          y: 100 
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
 
-  if (!mounted) return null;
+    // Animación suave para elementos con clase .reveal
+    gsap.utils.toArray('.reveal').forEach((element) => {
+      gsap.fromTo(element,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: element,
+            start: "top 85%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
     <div className="app">
-      <LanguageToggle />
-      <FloatingOrbs />
+      <Navigation />
       
-      <Hero />
-      
-      <section className="section section--about about">
-        <About />
-      </section>
-      
-      <section className="section section--skills skills">
-        <Skills />
-      </section>
-      
-      <section className="section section--experience experience">
-        <Experience />
-      </section>
-      
-      <section className="section section--projects projects">
-        <Projects />
-      </section>
-      
-      <section className="section section--art art">
-        <Art />
-      </section>
-      
-      <section className="section section--human human">
-        <Human />
-      </section>
-      
-      <section className="section section--contact contact">
-        <Contact />
-      </section>
+      <main>
+        <HomeSection />
+        <AboutMeSection />
+        <ExperienceSection />
+        <ArtGallerySection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
     </div>
   );
 }
