@@ -8,8 +8,9 @@ import 'swiper/css/pagination';
 
 const ArtGallerySection = () => {
   const [hoveredArtwork, setHoveredArtwork] = useState(null);
+  const [imageErrors, setImageErrors] = useState(new Set());
 
-  // Datos de arte organizados por categorías
+  // Datos de arte organizados por categorías con imágenes reales
   const artCategories = [
     {
       id: 'digital',
@@ -22,28 +23,32 @@ const ArtGallerySection = () => {
           title: 'Cian Pulse',
           description: 'Exploración de formas orgánicas en el espacio digital',
           instagramUrl: 'https://www.instagram.com/p/example1/',
-          imageUrl: 'https://via.placeholder.com/400x300/00BCD4/FFFFFF?text=Digital+Art+1'
+          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 2,
           title: 'Teal Nebula',
           description: 'Una nebulosa de emociones y colores',
           instagramUrl: 'https://www.instagram.com/p/example2/',
-          imageUrl: 'https://via.placeholder.com/400x300/009688/FFFFFF?text=Digital+Art+2'
+          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 3,
           title: 'Violet Echo',
           description: 'Patrones geométricos que resuenan',
           instagramUrl: 'https://www.instagram.com/p/example3/',
-          imageUrl: 'https://via.placeholder.com/400x300/7C4DFF/FFFFFF?text=Digital+Art+3'
+          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 4,
           title: 'Red-Violet Bloom',
           description: 'La naturaleza florece en colores vibrantes',
           instagramUrl: 'https://www.instagram.com/p/example4/',
-          imageUrl: 'https://via.placeholder.com/400x300/C2185B/FFFFFF?text=Digital+Art+4'
+          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+          valid: false
         }
       ]
     },
@@ -58,21 +63,24 @@ const ArtGallerySection = () => {
           title: 'Atardecer Montevideano',
           description: 'Capturando la magia del Río de la Plata',
           instagramUrl: 'https://www.instagram.com/p/example5/',
-          imageUrl: 'https://via.placeholder.com/400x300/FF9500/FFFFFF?text=Oil+Painting+1'
+          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 6,
           title: 'Retrato Abstracto',
           description: 'Emociones plasmadas en pinceladas',
           instagramUrl: 'https://www.instagram.com/p/example6/',
-          imageUrl: 'https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=Oil+Painting+2'
+          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 7,
           title: 'Naturaleza Viva',
           description: 'La esencia de la vida en cada trazo',
           instagramUrl: 'https://www.instagram.com/p/example7/',
-          imageUrl: 'https://via.placeholder.com/400x300/4CAF50/FFFFFF?text=Oil+Painting+3'
+          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+          valid: false
         }
       ]
     },
@@ -87,32 +95,46 @@ const ArtGallerySection = () => {
           title: 'Estudio de Líneas',
           description: 'La simplicidad del grafito',
           instagramUrl: 'https://www.instagram.com/p/example8/',
-          imageUrl: 'https://via.placeholder.com/400x300/8E8E93/FFFFFF?text=Pencil+Drawing+1'
+          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 9,
           title: 'Retrato Detallado',
           description: 'Cada línea cuenta una historia',
           instagramUrl: 'https://www.instagram.com/p/example9/',
-          imageUrl: 'https://via.placeholder.com/400x300/6D6D70/FFFFFF?text=Pencil+Drawing+2'
+          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 10,
           title: 'Arquitectura Urbana',
           description: 'Montevideo en trazos de grafito',
           instagramUrl: 'https://www.instagram.com/p/example10/',
-          imageUrl: 'https://via.placeholder.com/400x300/5A5A5D/FFFFFF?text=Pencil+Drawing+3'
+          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
+          valid: true
         },
         {
           id: 11,
           title: 'Estudio Anatómico',
           description: 'La belleza de la forma humana',
           instagramUrl: 'https://www.instagram.com/p/example11/',
-          imageUrl: 'https://via.placeholder.com/400x300/48484A/FFFFFF?text=Pencil+Drawing+4'
+          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          valid: false
         }
       ]
     }
   ];
+
+  const handleImageError = (artworkId) => {
+    setImageErrors(prev => new Set([...prev, artworkId]));
+  };
+
+  const handleArtworkClick = (artwork) => {
+    if (artwork.valid && artwork.instagramUrl) {
+      window.open(artwork.instagramUrl, '_blank', 'noopener,noreferrer');
+    }
+  };
 
   return (
     <section id="art" className="section art-section">
@@ -283,14 +305,15 @@ const ArtGallerySection = () => {
                   {category.artworks.map((artwork, artworkIndex) => (
                     <SwiperSlide key={artwork.id}>
                       <motion.div
-                        className="artwork-card"
+                        className={`artwork-card ${artwork.valid ? 'clickable' : 'non-clickable'}`}
                         onMouseEnter={() => setHoveredArtwork(artwork.id)}
                         onMouseLeave={() => setHoveredArtwork(null)}
+                        onClick={() => handleArtworkClick(artwork)}
                         initial={{ opacity: 0, y: 30, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ 
                           duration: 0.6, 
-                          delay: categoryIndex * 0.2 + artworkIndex * 0.1,
+                          delay: categoryIndex * 0.3 + artworkIndex * 0.1,
                           ease: "easeOut"
                         }}
                         whileHover={{ 
@@ -298,12 +321,12 @@ const ArtGallerySection = () => {
                           scale: 1.05,
                           transition: { duration: 0.3, ease: "easeOut" }
                         }}
-                        whileTap={{ scale: 0.98 }}
+                        whileTap={{ scale: artwork.valid ? 0.98 : 1 }}
                       >
                         <motion.div 
                           className="artwork-glow"
                           initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
+                          whileHover={{ opacity: artwork.valid ? 1 : 0 }}
                           transition={{ duration: 0.3 }}
                           style={{ 
                             background: `linear-gradient(135deg, ${category.color}30, ${category.color}10)`
@@ -311,34 +334,47 @@ const ArtGallerySection = () => {
                         />
                         
                         <div className="artwork-image-container">
-                          <img 
-                            src={artwork.imageUrl} 
-                            alt={artwork.title}
-                            className="artwork-image"
-                            loading="lazy"
-                          />
-                          <motion.div 
-                            className="artwork-overlay"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: hoveredArtwork === artwork.id ? 1 : 0 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <motion.a
-                              href={artwork.instagramUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="instagram-link"
-                              whileHover={{ scale: 1.1 }}
-                              whileTap={{ scale: 0.95 }}
+                          {imageErrors.has(artwork.id) ? (
+                            <div className="artwork-fallback">
+                              <div className="fallback-icon">🎨</div>
+                              <div className="fallback-text">Imagen no disponible</div>
+                            </div>
+                          ) : (
+                            <img 
+                              src={artwork.imageUrl} 
+                              alt={artwork.title}
+                              className="artwork-image"
+                              loading="lazy"
+                              onError={() => handleImageError(artwork.id)}
+                            />
+                          )}
+                          
+                          {artwork.valid && (
+                            <motion.div 
+                              className="artwork-overlay"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: hoveredArtwork === artwork.id ? 1 : 0 }}
+                              transition={{ duration: 0.3 }}
                             >
-                              <span className="instagram-icon">↗️</span>
-                            </motion.a>
-                          </motion.div>
+                              <motion.div
+                                className="instagram-link"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                              >
+                                <span className="instagram-icon">↗️</span>
+                              </motion.div>
+                            </motion.div>
+                          )}
                         </div>
                         
                         <div className="artwork-info">
                           <h4 className="artwork-title">{artwork.title}</h4>
                           <p className="artwork-description">{artwork.description}</p>
+                          {!artwork.valid && (
+                            <div className="artwork-status">
+                              <span className="status-text">Próximamente</span>
+                            </div>
+                          )}
                         </div>
                       </motion.div>
                     </SwiperSlide>
