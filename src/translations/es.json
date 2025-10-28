@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "hero": "Inicio",
+    "about": "Acerca de",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "art": "Arte y Creatividad",
+    "human": "Lado Humano",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Candela Mangino Soroa",
+    "subtitle": "Estudiante de Ingeniería en Computación, creadora tecnológica y narradora vibrante desde Uruguay.",
+    "cta": "Explorar el universo",
+    "quote": "Programa como quien compone y diseña como quien coreografía: cada interacción es una nota en la experiencia."
+  },
+  "about": {
+    "heading": "Sobre Candela",
+    "body": "Soy una estudiante de Ingeniería en Computación que entrelaza lógica y arte. Desde instalaciones interactivas juguetonas hasta sistemas de software sensibles, construyo experiencias que respiran. Creo en la tecnología como un lienzo para la empatía, el asombro y el cambio significativo.",
+    "highlight": "Vivo en Montevideo, Uruguay · Bilingüe (ES/EN) · Impulsora de STEM + Artes"
+  },
+  "skills": {
+    "heading": "Habilidades Firmadas",
+    "tech": "Arte Técnico",
+    "techList": [
+      "Desarrollo front-end (React, TypeScript, Vite)",
+      "Creative coding y shaders",
+      "Sistemas de UI, accesibilidad y design systems",
+      "Prototipado con Figma y Framer"
+    ],
+    "creative": "Superpoderes Creativos",
+    "creativeList": [
+      "Ilustración y motion graphics",
+      "Dirección de arte y storytelling",
+      "Fotografía y narrativas visuales",
+      "Facilitación de talleres y mentorías"
+    ],
+    "micro": "Microinteracciones",
+    "microList": [
+      "Coreografías con Framer Motion",
+      "Timelines en GSAP",
+      "Paisajes sonoros interactivos",
+      "Ilusiones parallax y 3D"
+    ]
+  },
+  "experience": {
+    "heading": "Experiencia e Impacto",
+    "timeline": [
+      {
+        "title": "Ayudante Estudiantil · Universidad de la República",
+        "time": "2024 — Actualidad",
+        "description": "Acompaño cursos introductorios de programación con laboratorios creativos que conectan código, música y artes visuales."
+      },
+      {
+        "title": "Diseñadora de Experiencias · Hotel Boutique",
+        "time": "2023",
+        "description": "Diseñé bienvenidas sensoriales combinando iluminación ambiental, proyección y playlists hechas a medida."
+      },
+      {
+        "title": "Catalizadora de Hackathones",
+        "time": "2022",
+        "description": "Lideré un equipo en un hackathón de sostenibilidad, prototipando un concepto IoT para reducir el desperdicio de agua en Montevideo."
+      }
+    ],
+    "hover": {
+      "english": "Dominio de inglés nivel C2",
+      "hotel": "Narrativas de hospitalidad con tecnología inmersiva",
+      "hackathon": "Mención honorífica por impacto social"
+    }
+  },
+  "projects": {
+    "heading": "Proyectos Destacados",
+    "list": [
+      {
+        "name": "Luz Nómada",
+        "description": "Instalación lumínica interactiva que responde a datos de pulso y danza improvisada.",
+        "tag": "Arte-Tec"
+      },
+      {
+        "name": "AquaSense",
+        "description": "Tablero móvil gamificado que invita a las familias a enamorarse de los hábitos sostenibles de agua.",
+        "tag": "UX / IoT"
+      },
+      {
+        "name": "Atlas Cromático",
+        "description": "Visualización de datos sobre migraciones de aves uruguayas traducida en paisajes sonoros vívidos.",
+        "tag": "Creative Coding"
+      }
+    ],
+    "note": "Cada proyecto es un laboratorio donde la empatía se encuentra con la computación."
+  },
+  "art": {
+    "heading": "Arte y Creatividad",
+    "description": "El color es mi lengua materna. Me inspiran los atardeceres del Río de la Plata, la música electrónica y el juego de luces en las calles lluviosas. Mis ilustraciones, fotografías y experimentos audiovisuales celebran la curiosidad y la poesía oculta en los algoritmos.",
+    "gallery": [
+      "Pulso Cian",
+      "Nebulosa Teal",
+      "Eco Violeta",
+      "Flor Fucsia"
+    ]
+  },
+  "human": {
+    "heading": "Lado Humano",
+    "paragraphs": [
+      "Acompaño a chicas jóvenes que ingresan a STEM, compartiendo herramientas para confiar en sus voces.",
+      "Recargo energía con fotografía analógica, journaling y paseos en longboard por la rambla.",
+      "Me encanta co-crear aventuras multisensoriales junto a músicos, chefs y bailarines."
+    ],
+    "hover": {
+      "empathy": "Diseñando comunidades inclusivas",   
+      "rituals": "Rituales de mate dominguero con amigas",
+      "collab": "Siempre buscando equipos multidisciplinarios"
+    }
+  },
+  "contact": {
+    "heading": "Creamos Magia",
+    "copy": "Contame qué experiencias soñás construir. Estoy lista para colaborar en software, instalaciones y todo lo que exista en el medio.",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "placeholder": "Construyamos algo poético.",
+      "submit": "Enviar un saludo cósmico"
+    }
+  },
+  "footer": "Diseñado y desarrollado con cariño por Candela Mangino Soroa"
+}

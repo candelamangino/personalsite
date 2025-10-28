@@ -1,0 +1,128 @@
+{
+  "nav": {
+    "hero": "Hero",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "art": "Art & Creativity",
+    "human": "Human Side",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Candela Mangino Soroa",
+    "subtitle": "Computer Engineering student, creative technologist, and vibrant storyteller from Uruguay.",
+    "cta": "Explore the universe",
+    "quote": "I code like a composer and design like a choreographer — every interaction is a note in the experience."
+  },
+  "about": {
+    "heading": "About Candela",
+    "body": "I am a Computer Engineering student who blends logic and artistry. From playful interactive installations to thoughtful software systems, I build experiences that feel alive. I believe in technology as a canvas for empathy, delight, and meaningful change.",
+    "highlight": "Based in Montevideo, Uruguay · Bilingual (ES/EN) · STEM & Arts advocate"
+  },
+  "skills": {
+    "heading": "Signature Skills",
+    "tech": "Tech Craft",
+    "techList": [
+      "Front-end development (React, TypeScript, Vite)",
+      "Creative coding & shaders",
+      "UI systems, accessibility & design systems",
+      "Prototyping with Figma & Framer"
+    ],
+    "creative": "Creative Superpowers",
+    "creativeList": [
+      "Illustration & motion graphics",
+      "Art direction & storytelling",
+      "Photography & visual narratives",
+      "Workshop facilitation & mentoring"
+    ],
+    "micro": "Microinteractions",
+    "microList": [
+      "Framer Motion choreography",
+      "GSAP timelines",
+      "Interactive soundscapes",
+      "Parallax & 3D illusions"
+    ]
+  },
+  "experience": {
+    "heading": "Experience & Impact",
+    "timeline": [
+      {
+        "title": "Student Assistant · Universidad de la República",
+        "time": "2024 — Present",
+        "description": "Supporting introductory programming courses with creative labs that connect code, music, and visual arts."
+      },
+      {
+        "title": "Experience Designer · Boutique Hotel",
+        "time": "2023",
+        "description": "Crafted sensory welcome experiences combining ambient lighting, projection mapping, and bespoke playlists."
+      },
+      {
+        "title": "Hackathon Catalyst",
+        "time": "2022",
+        "description": "Led a team in a sustainability hackathon, prototyping an IoT concept to reduce water waste in Montevideo."
+      }
+    ],
+    "hover": {
+      "english": "C2 English proficiency",
+      "hotel": "Hospitality storytelling through immersive tech",
+      "hackathon": "Awarded honorable mention for social impact"
+    }
+  },
+  "projects": {
+    "heading": "Selected Projects",
+    "list": [
+      {
+        "name": "Luz Nómada",
+        "description": "Interactive light installation that reacts to heartbeat data and improvised dance.",
+        "tag": "Art-Tech"
+      },
+      {
+        "name": "AquaSense",
+        "description": "Gamified mobile dashboard teaching families to love sustainable water habits.",        
+        "tag": "UX / IoT"
+      },
+      {
+        "name": "Chromatic Atlas",
+        "description": "Data visualization of Uruguayan bird migrations translated into vivid soundscapes.",
+        "tag": "Creative Coding"
+      }
+    ],
+    "note": "Each project is a playground where empathy meets computation."
+  },
+  "art": {
+    "heading": "Art & Creativity",
+    "description": "Color is my native language. I draw inspiration from Río de la Plata sunsets, electronic music, and the play of light on rainy streets. My illustrations, photography, and audiovisual experiments celebrate curiosity and the poetry hidden in algorithms.",
+    "gallery": [
+      "Cyan Pulse",
+      "Teal Nebula",
+      "Violet Echo",
+      "Red-Violet Bloom"
+    ]
+  },
+  "human": {
+    "heading": "The Human Side",
+    "paragraphs": [
+      "I mentor young girls entering STEM, sharing tools to trust their voices.",
+      "I recharge through analog photography, journaling, and longboard rides along the rambla.",
+      "I love collaborating with musicians, chefs, and dancers to co-create multisensory adventures."
+    ],
+    "hover": {
+      "empathy": "Designing inclusive communities",
+      "rituals": "Sunday mate rituals with friends",
+      "collab": "Always seeking multidisciplinary crews"
+    }
+  },
+  "contact": {
+    "heading": "Let's Make Magic",
+    "copy": "Tell me about the experiences you dream of building. I am ready to collaborate on software, installations, and everything in between.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "placeholder": "Let's build something poetic.",
+      "submit": "Send a cosmic hello"
+    }
+  },
+  "footer": "Designed & developed with cariño by Candela Mangino Soroa"
+}
