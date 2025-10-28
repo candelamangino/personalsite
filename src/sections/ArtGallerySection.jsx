@@ -136,30 +136,108 @@ const ArtGallerySection = () => {
             <motion.div
               key={category.id}
               className="art-category-section"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 80, scale: 0.95 }}
+              whileInView={{ 
+                opacity: 1, 
+                y: 0, 
+                scale: 1,
+                transition: {
+                  duration: 1.2,
+                  delay: categoryIndex * 0.3,
+                  ease: "easeOut"
+                }
+              }}
+              viewport={{ 
+                once: true,
+                margin: "-100px"
+              }}
             >
               <motion.div 
                 className="category-header"
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.2 + 0.3 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ 
+                  opacity: 1, 
+                  y: 0,
+                  transition: {
+                    duration: 0.8,
+                    delay: categoryIndex * 0.3 + 0.4,
+                    ease: "easeOut"
+                  }
+                }}
+                viewport={{ 
+                  once: true,
+                  margin: "-50px"
+                }}
               >
-                <div className="category-title-container">
-                  <span 
+                <motion.div 
+                  className="category-title-container"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ 
+                    opacity: 1, 
+                    scale: 1,
+                    transition: {
+                      duration: 0.6,
+                      delay: categoryIndex * 0.3 + 0.6,
+                      ease: "back.out(1.7)"
+                    }
+                  }}
+                  viewport={{ once: true }}
+                >
+                  <motion.span 
                     className="category-icon"
                     style={{ color: category.color }}
+                    initial={{ opacity: 0, rotate: -180, scale: 0 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      rotate: 0, 
+                      scale: 1,
+                      transition: {
+                        duration: 0.8,
+                        delay: categoryIndex * 0.3 + 0.7,
+                        ease: "back.out(1.7)"
+                      }
+                    }}
+                    viewport={{ once: true }}
                   >
                     {category.icon}
-                  </span>
-                  <h3 className="category-title">{category.title}</h3>
-                </div>
-                <div 
+                  </motion.span>
+                  <motion.h3 
+                    className="category-title"
+                    style={{ 
+                      background: `linear-gradient(135deg, ${category.color}, ${category.color}CC, ${category.color}99)`,
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text'
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: {
+                        duration: 0.8,
+                        delay: categoryIndex * 0.3 + 0.8,
+                        ease: "easeOut"
+                      }
+                    }}
+                    viewport={{ once: true }}
+                  >
+                    {category.title}
+                  </motion.h3>
+                </motion.div>
+                <motion.div 
                   className="category-line"
                   style={{ backgroundColor: category.color }}
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ 
+                    scaleX: 1, 
+                    opacity: 0.8,
+                    transition: {
+                      duration: 1.0,
+                      delay: categoryIndex * 0.3 + 1.0,
+                      ease: "easeOut"
+                    }
+                  }}
+                  viewport={{ once: true }}
                 />
               </motion.div>
 
