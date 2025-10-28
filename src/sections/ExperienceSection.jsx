@@ -200,37 +200,143 @@ const ExperienceSection = () => {
                           <SwiperSlide key={idx}>
                             <motion.div 
                               className="review-card"
-                              whileHover={{ y: -5, scale: 1.02 }}
-                              transition={{ duration: 0.3 }}
+                              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              transition={{ 
+                                duration: 0.6, 
+                                delay: idx * 0.1,
+                                ease: "easeOut"
+                              }}
+                              whileHover={{ 
+                                y: -8, 
+                                scale: 1.03,
+                                transition: { duration: 0.3, ease: "easeOut" }
+                              }}
+                              whileTap={{ scale: 0.98 }}
                             >
-                              <div className="review-header">
-                                <div className="review-stars">
+                              <motion.div 
+                                className="review-glow"
+                                initial={{ opacity: 0 }}
+                                whileHover={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                              />
+                              
+                              <motion.div 
+                                className="review-header"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 + 0.2 }}
+                              >
+                                <motion.div 
+                                  className="review-stars"
+                                  initial={{ scale: 0 }}
+                                  animate={{ scale: 1 }}
+                                  transition={{ 
+                                    duration: 0.5, 
+                                    delay: idx * 0.1 + 0.3,
+                                    ease: "back.out(1.7)"
+                                  }}
+                                >
                                   {[...Array(review.rating)].map((_, i) => (
-                                    <span key={i} className="star">★</span>
+                                    <motion.span 
+                                      key={i} 
+                                      className="star"
+                                      initial={{ opacity: 0, scale: 0 }}
+                                      animate={{ opacity: 1, scale: 1 }}
+                                      transition={{ 
+                                        duration: 0.3, 
+                                        delay: idx * 0.1 + 0.4 + i * 0.1,
+                                        ease: "back.out(1.7)"
+                                      }}
+                                      whileHover={{ 
+                                        scale: 1.2, 
+                                        rotate: 10,
+                                        transition: { duration: 0.2 }
+                                      }}
+                                    >
+                                      ★
+                                    </motion.span>
                                   ))}
-                                </div>
-                                <div className="review-rating">
+                                </motion.div>
+                                <motion.div 
+                                  className="review-rating"
+                                  initial={{ opacity: 0, scale: 0 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ 
+                                    duration: 0.4, 
+                                    delay: idx * 0.1 + 0.5,
+                                    ease: "back.out(1.7)"
+                                  }}
+                                  whileHover={{ scale: 1.1 }}
+                                >
                                   <span className="rating-number">{review.rating}.0</span>
-                                </div>
-                              </div>
+                                </motion.div>
+                              </motion.div>
                               
-                              <p className="review-text">"{review.text}"</p>
+                              <motion.p 
+                                className="review-text"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 + 0.6 }}
+                              >
+                                "{review.text}"
+                              </motion.p>
                               
-                              <div className="review-footer">
-                                <span className="review-author">— {review.author}</span>
+                              <motion.div 
+                                className="review-footer"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 + 0.7 }}
+                              >
+                                <motion.span 
+                                  className="review-author"
+                                  whileHover={{ x: 5 }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  — {review.author}
+                                </motion.span>
                                 
                                 <motion.a
                                   href={review.googleLink}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className="google-link"
-                                  whileHover={{ scale: 1.1 }}
+                                  whileHover={{ 
+                                    scale: 1.05,
+                                    y: -2,
+                                    transition: { duration: 0.2 }
+                                  }}
                                   whileTap={{ scale: 0.95 }}
                                 >
-                                  <span className="google-text">Ver en Google</span>
-                                  <span className="google-icon">↗️</span>
+                                  <motion.span 
+                                    className="google-text"
+                                    whileHover={{ x: -2 }}
+                                    transition={{ duration: 0.2 }}
+                                  >
+                                    Ver en Google
+                                  </motion.span>
+                                  <motion.span 
+                                    className="google-icon"
+                                    whileHover={{ 
+                                      x: 3, 
+                                      y: -3,
+                                      rotate: 15,
+                                      scale: 1.2,
+                                      transition: { duration: 0.2 }
+                                    }}
+                                    animate={{ 
+                                      rotate: [0, 5, 0],
+                                      transition: { 
+                                        duration: 2, 
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                      }
+                                    }}
+                                  >
+                                    ↗️
+                                  </motion.span>
                                 </motion.a>
-                              </div>
+                              </motion.div>
                             </motion.div>
                           </SwiperSlide>
                         ))}
