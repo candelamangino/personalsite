@@ -754,6 +754,29 @@ body {
   100% { left: 100%; }
 }
 
+/* Títulos de subsección */
+.subsection-title-container {
+  text-align: center;
+  margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+}
+
+.subsection-title {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 var(--spacing-sm) 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.subsection-line {
+  height: 3px;
+  width: 60px;
+  margin: 0 auto;
+  border-radius: 2px;
+  transform-origin: center;
+}
+
 .artworks-carousel {
   position: relative;
 }
@@ -861,6 +884,11 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   text-align: center;
+}
+
+.artwork-fallback-image {
+  opacity: 0.7;
+  filter: grayscale(20%);
 }
 
 .artwork-overlay {
