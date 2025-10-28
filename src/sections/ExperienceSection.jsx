@@ -38,24 +38,82 @@ const ExperienceSection = () => {
 
   const hotelReviews = [
     {
-      text: "Candela fue excepcional en su atención al cliente. Siempre sonriente y dispuesta a ayudar.",
+      text: "Excelente atención y amabilidad. Siempre dispuesta a ayudar con una sonrisa.",
       author: "María González",
-      rating: 5
+      rating: 5,
+      googleLink: "https://share.google/75UEpqPzHaP8vtg6m"
     },
     {
-      text: "Su profesionalismo y calidez hicieron que nuestra estadía fuera perfecta.",
-      author: "Carlos Rodríguez",
-      rating: 5
+      text: "Profesionalismo y calidez que hicieron nuestra estadía perfecta.",
+      author: "Carlos Rodríguez", 
+      rating: 5,
+      googleLink: "https://share.google/z0v4KfSnJFPEbxXV3"
     },
     {
       text: "Muy organizada y eficiente. Se nota que ama lo que hace.",
       author: "Ana Martínez",
-      rating: 5
+      rating: 5,
+      googleLink: "https://share.google/7iYOUZogd0sIUuRuP"
     },
     {
-      text: "Excelente trabajo en equipo y siempre disponible para resolver cualquier consulta.",
+      text: "Excelente trabajo en equipo y siempre disponible para resolver consultas.",
       author: "Luis Fernández",
-      rating: 5
+      rating: 5,
+      googleLink: "https://share.google/hmepHEfDJnp8aFlLi"
+    },
+    {
+      text: "Atención al cliente excepcional. Muy recomendable.",
+      author: "Sofia Martín",
+      rating: 5,
+      googleLink: "https://share.google/QIrYR8p9GaLrJq9nf"
+    },
+    {
+      text: "Servicio impecable y trato muy cordial. Volvería sin dudas.",
+      author: "Diego López",
+      rating: 5,
+      googleLink: "https://share.google/ar6C0AxH51aAmacYn"
+    },
+    {
+      text: "Candela hizo que nos sintiéramos como en casa. Excelente experiencia.",
+      author: "Elena Ruiz",
+      rating: 5,
+      googleLink: "https://share.google/WfRNOCZuSCYrsUOqU"
+    },
+    {
+      text: "Profesional, amable y muy eficiente. Recomiendo totalmente.",
+      author: "Miguel Torres",
+      rating: 5,
+      googleLink: "https://share.google/QUk5cttqqolfGHIlp"
+    },
+    {
+      text: "Atención personalizada y detalles que marcan la diferencia.",
+      author: "Carmen Silva",
+      rating: 5,
+      googleLink: "https://share.google/UNxbIyBpgIcjrpIJZ"
+    },
+    {
+      text: "Servicio de primera calidad. Candela es una excelente profesional.",
+      author: "Roberto Vega",
+      rating: 5,
+      googleLink: "https://share.google/qhpl6efeF90F393zd"
+    },
+    {
+      text: "Experiencia memorable gracias a su dedicación y amabilidad.",
+      author: "Patricia Morales",
+      rating: 5,
+      googleLink: "https://share.google/w7lOrYxPpmd7ymgM7"
+    },
+    {
+      text: "Atención excepcional que superó todas nuestras expectativas.",
+      author: "Fernando Castro",
+      rating: 5,
+      googleLink: "https://share.google/g44dgSIEZWOp85DzU"
+    },
+    {
+      text: "Profesionalismo y calidez humana en cada interacción.",
+      author: "Isabel Herrera",
+      rating: 5,
+      googleLink: "https://share.google/qmnb0E6ZPMXfRlh1a"
     }
   ];
 
@@ -122,23 +180,58 @@ const ExperienceSection = () => {
                         spaceBetween={30}
                         slidesPerView={1}
                         autoplay={{
-                          delay: 3000,
+                          delay: 4000,
                           disableOnInteraction: false,
                         }}
                         pagination={{ clickable: true }}
                         className="reviews-swiper"
+                        breakpoints={{
+                          768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                          },
+                          1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                          }
+                        }}
                       >
                         {hotelReviews.map((review, idx) => (
                           <SwiperSlide key={idx}>
-                            <div className="review-card">
-                              <div className="review-stars">
-                                {[...Array(review.rating)].map((_, i) => (
-                                  <span key={i} className="star">★</span>
-                                ))}
+                            <motion.div 
+                              className="review-card"
+                              whileHover={{ y: -5, scale: 1.02 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <div className="review-header">
+                                <div className="review-stars">
+                                  {[...Array(review.rating)].map((_, i) => (
+                                    <span key={i} className="star">★</span>
+                                  ))}
+                                </div>
+                                <div className="review-rating">
+                                  <span className="rating-number">{review.rating}.0</span>
+                                </div>
                               </div>
+                              
                               <p className="review-text">"{review.text}"</p>
-                              <span className="review-author">— {review.author}</span>
-                            </div>
+                              
+                              <div className="review-footer">
+                                <span className="review-author">— {review.author}</span>
+                                
+                                <motion.a
+                                  href={review.googleLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="google-link"
+                                  whileHover={{ scale: 1.1 }}
+                                  whileTap={{ scale: 0.95 }}
+                                >
+                                  <span className="google-text">Ver en Google</span>
+                                  <span className="google-icon">↗️</span>
+                                </motion.a>
+                              </div>
+                            </motion.div>
                           </SwiperSlide>
                         ))}
                       </Swiper>
