@@ -20,35 +20,19 @@ const ArtGallerySection = () => {
       artworks: [
         {
           id: 1,
-          title: 'Cian Pulse',
+          title: 'Retrato digital 1',
           description: 'Exploración de formas orgánicas en el espacio digital',
-          instagramUrl: 'https://www.instagram.com/p/example1/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/DLdnpGEyGIS/',
+          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/476015655_17946712292938282_2220896886900335233_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=105&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfdeGHhvedvzLu0pxsBIcVhb5yYP_c7nCuIRfBT6LWcuwQ&oe=69072F6E',
           valid: true
         },
         {
           id: 2,
-          title: 'Teal Nebula',
+          title: 'Retrato digital 2',
           description: 'Una nebulosa de emociones y colores',
-          instagramUrl: 'https://www.instagram.com/p/example2/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/CpjG19uLqVo/',
+          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/503062628_17960587496938282_5637281132442241441_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=105&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfduYij2Ran-qn4rsrrMmY1xmLrmlwQRxVeRAIcdGDoCTA&oe=69072DD9',
           valid: true
-        },
-        {
-          id: 3,
-          title: 'Violet Echo',
-          description: 'Patrones geométricos que resuenan',
-          instagramUrl: 'https://www.instagram.com/p/example3/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: true
-        },
-        {
-          id: 4,
-          title: 'Red-Violet Bloom',
-          description: 'La naturaleza florece en colores vibrantes',
-          instagramUrl: 'https://www.instagram.com/p/example4/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
         }
       ]
     },
@@ -59,28 +43,20 @@ const ArtGallerySection = () => {
       color: '#FF9500',
       artworks: [
         {
-          id: 5,
-          title: 'Atardecer Montevideano',
+          id: 1,
+          title: 'Óleo - Retrato femenino',
           description: 'Capturando la magia del Río de la Plata',
-          instagramUrl: 'https://www.instagram.com/p/example5/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/CvN-1kbpPvQ/',
+          imageUrl: 'https://www.instagram.com/p/CvN-1kbpPvQ/?utm_source=ig_web_copy_link',
           valid: true
         },
         {
-          id: 6,
-          title: 'Retrato Abstracto',
+          id: 2,
+          title: 'Óleo - Mirada profunda',
           description: 'Emociones plasmadas en pinceladas',
-          instagramUrl: 'https://www.instagram.com/p/example6/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/CpjGUqfLLc_/',
+          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/476457232_17946803936938282_1927127866501663697_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=106&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_Afd-23tungAC43I3CkK3pyQ4IGEatg6VTA4rGtv9Iky12A&oe=69070741',
           valid: true
-        },
-        {
-          id: 7,
-          title: 'Naturaleza Viva',
-          description: 'La esencia de la vida en cada trazo',
-          instagramUrl: 'https://www.instagram.com/p/example7/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
         }
       ]
     },
@@ -91,36 +67,20 @@ const ArtGallerySection = () => {
       color: '#8E8E93',
       artworks: [
         {
-          id: 8,
-          title: 'Estudio de Líneas',
+          id: 1,
+          title: 'Retrato a lápiz 1',
           description: 'La simplicidad del grafito',
-          instagramUrl: 'https://www.instagram.com/p/example8/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/CpkoIGuLD4g/',
+          imageUrl: 'https://scontent.cdninstagram.com/v/t39.30808-6/444481763_17915009348938282_8905329265676614816_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=103&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_Afeo1HjUmt4oFbL5kQrMPWjSvzXeFD6KJFc6QKHNW-uB1A&oe=6907086A',
           valid: true
         },
         {
-          id: 9,
-          title: 'Retrato Detallado',
+          id: 2,
+          title: 'Retrato a lápiz 2',
           description: 'Cada línea cuenta una historia',
-          instagramUrl: 'https://www.instagram.com/p/example9/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
+          instagramUrl: 'https://www.instagram.com/p/CpMQh-esIXC/',
+          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/470951725_17941612124938282_7667119843937668843_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=102&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfcB4S3A2xTK5TulWC1K3sAKL9gSbahmAUC5I7SIJy6Tig&oe=690707F2',
           valid: true
-        },
-        {
-          id: 10,
-          title: 'Arquitectura Urbana',
-          description: 'Montevideo en trazos de grafito',
-          instagramUrl: 'https://www.instagram.com/p/example10/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: true
-        },
-        {
-          id: 11,
-          title: 'Estudio Anatómico',
-          description: 'La belleza de la forma humana',
-          instagramUrl: 'https://www.instagram.com/p/example11/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
         }
       ]
     }
