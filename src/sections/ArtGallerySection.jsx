@@ -20,10 +20,24 @@ const ArtGallerySection = () => {
       artworks: [
         {
           id: 1,
-          title: 'Dodge-48',
+          title: 'Dodge 48',
           description: 'Exploración de formas orgánicas en el espacio digital',
           instagramUrl: 'https://www.instagram.com/p/DLdnpGEyGIS/',
-          imageUrl: '/images/art/digital/Dodge-48.png',
+          imageUrl: '/images/art/digital/Dodge_48.jpg',
+          valid: true
+        },
+        {
+          id: 2,
+          title: 'Sid',
+          description: 'Arte digital con personalidad única',
+          imageUrl: '/images/art/digital/arte_digital_sid.jpg',
+          valid: true
+        },
+        {
+          id: 3,
+          title: 'Ricardito',
+          description: 'Creatividad digital en acción',
+          imageUrl: '/images/art/digital/arte_digital_ricardito.jpg',
           valid: true
         }
       ]
@@ -39,15 +53,15 @@ const ArtGallerySection = () => {
           title: 'Bailarina',
           description: 'Capturando la magia del movimiento en óleo',
           instagramUrl: 'https://www.instagram.com/p/CvN-1kbpPvQ/',
-          imageUrl: '/images/art/oleo/Bailarina.png',
+          imageUrl: '/images/art/oleo/bailarina.jpg',
           valid: true
         },
         {
           id: 2,
-          title: 'Retrato híper realista Franco',
+          title: 'Retrato hiperrealista de Franco',
           description: 'Emociones plasmadas en pinceladas',
           instagramUrl: 'https://www.instagram.com/p/CuDauTqrZrh/',
-          imageUrl: '/images/art/oleo/Retrato híper realista Franco.png',
+          imageUrl: '/images/art/oleo/franco.jpg',
           valid: true
         },
         {
@@ -55,7 +69,7 @@ const ArtGallerySection = () => {
           title: 'Amor padre e hija',
           description: 'La conexión más pura capturada en óleo',
           instagramUrl: 'https://www.instagram.com/p/CskbWE_LNVf/',
-          imageUrl: '/images/art/oleo/Retrato híper realista "Amor padre e hija".png',
+          imageUrl: '/images/art/oleo/amor_padre_e_hija.jpg',
           valid: true
         },
         {
@@ -63,7 +77,7 @@ const ArtGallerySection = () => {
           title: 'Miguel Ángel Pop',
           description: 'Clásico renacentista con toque moderno',
           instagramUrl: 'https://www.instagram.com/p/CpjGUqfLLc_/',
-          imageUrl: '/images/art/oleo/Miguel Ángel pop.png',
+          imageUrl: '/images/art/oleo/miguelangel.jpg',
           valid: true
         },
         {
@@ -71,30 +85,28 @@ const ArtGallerySection = () => {
           title: 'Hakuna Matata',
           description: 'La filosofía de vida en colores vibrantes',
           instagramUrl: 'https://www.instagram.com/p/Cpkn81rLRbS/',
-          imageUrl: '/images/art/oleo/Hakuna Matata.png',
+          imageUrl: '/images/art/oleo/hakuna_matata.jpg',
           valid: true
         },
         {
           id: 6,
           title: 'La mirada de papá',
           description: 'Profundidad emocional en cada trazo',
-          instagramUrl: 'https://www.instagram.com/p/CpjG19uLqVo/',
-          imageUrl: '/images/art/oleo/Retrato híper realista "la mirada de papá".png',
+          imageUrl: '/images/art/oleo/mirada_papa.jpg',
           valid: true
         },
         {
           id: 7,
           title: 'Un suspiro',
           description: 'Momento de tranquilidad en óleo',
-          instagramUrl: 'https://www.instagram.com/p/CpMRARysv06/',
-          imageUrl: '/images/art/oleo/Un suspiro.png',
+          imageUrl: '/images/art/oleo/suspiro.jpg',
           valid: true
         }
       ]
     },
     {
       id: 'pencil',
-      title: 'Dibujos a Lápiz',
+      title: 'Arte en Lápiz y Papel',
       icon: '✏️',
       color: '#8E8E93',
       artworks: [
@@ -103,7 +115,28 @@ const ArtGallerySection = () => {
           title: 'Harry Styles B&N',
           description: 'La simplicidad del grafito',
           instagramUrl: 'https://www.instagram.com/p/CpkoIGuLD4g/',
-          imageUrl: '/images/art/lapiz/harry-styles-bn.jpg',
+          imageUrl: '/images/art/lapiz/arte_lapizypapel_walee.jpg',
+          valid: true
+        },
+        {
+          id: 2,
+          title: 'Retrato 1',
+          description: 'Técnica tradicional en grafito',
+          imageUrl: '/images/art/lapiz/arte_lapizypapel_dibujos2.jpg',
+          valid: true
+        },
+        {
+          id: 3,
+          title: 'Retrato 2',
+          description: 'Cada línea cuenta una historia',
+          imageUrl: '/images/art/lapiz/arte_lapizypapel_dibujos3.jpg',
+          valid: true
+        },
+        {
+          id: 4,
+          title: 'Retrato 3',
+          description: 'Arte en blanco y negro',
+          imageUrl: '/images/art/lapiz/arte_lapizypapel_dibujos4.jpg',
           valid: true
         }
       ]
