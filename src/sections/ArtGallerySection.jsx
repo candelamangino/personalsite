@@ -287,36 +287,48 @@ const ArtGallerySection = () => {
               {/* Título de subsección con animación */}
               <motion.div
                 className="subsection-title-container"
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ 
                   opacity: 1, 
                   y: 0,
                   transition: {
-                    duration: 0.6,
-                    delay: categoryIndex * 0.3 + 1.2,
-                    ease: "easeOut"
+                    duration: 1.6,
+                    delay: categoryIndex * 0.3 + 0.7,
+                    ease: "easeInOut"
                   }
                 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5, margin: "-100px" }}
               >
-                <h4 
+                <motion.h4 
                   className="subsection-title"
                   style={{ color: category.color }}
-                >
-                  {category.title}
-                </h4>
-                <motion.div 
-                  className="subsection-line"
-                  initial={{ scaleX: 0 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ 
-                    scaleX: 1,
+                    opacity: 1, 
+                    y: 0,
                     transition: {
-                      duration: 0.8,
-                      delay: categoryIndex * 0.3 + 1.4,
-                      ease: "easeOut"
+                      duration: 1.5,
+                      delay: categoryIndex * 0.3 + 0.8,
+                      ease: "easeInOut"
                     }
                   }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.5, margin: "-100px" }}
+                >
+                  {category.title}
+                </motion.h4>
+                <motion.div 
+                  className="subsection-line"
+                  initial={{ scaleX: 0, opacity: 0 }}
+                  whileInView={{ 
+                    scaleX: 1,
+                    opacity: 1,
+                    transition: {
+                      duration: 1.4,
+                      delay: categoryIndex * 0.3 + 1.2,
+                      ease: "easeInOut"
+                    }
+                  }}
+                  viewport={{ once: true, amount: 0.5, margin: "-100px" }}
                   style={{ backgroundColor: category.color }}
                 />
               </motion.div>
