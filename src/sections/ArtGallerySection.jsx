@@ -10,7 +10,7 @@ const ArtGallerySection = () => {
   const [hoveredArtwork, setHoveredArtwork] = useState(null);
   const [imageErrors, setImageErrors] = useState(new Set());
 
-  // Datos de arte organizados por categorías con imágenes reales
+  // Datos de arte organizados por categorías con imágenes locales
   const artCategories = [
     {
       id: 'digital',
@@ -20,83 +20,11 @@ const ArtGallerySection = () => {
       artworks: [
         {
           id: 1,
-          title: 'Retrato digital 1',
+          title: 'Dodge-48',
           description: 'Exploración de formas orgánicas en el espacio digital',
           instagramUrl: 'https://www.instagram.com/p/DLdnpGEyGIS/',
-          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/476015655_17946712292938282_2220896886900335233_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=105&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfdeGHhvedvzLu0pxsBIcVhb5yYP_c7nCuIRfBT6LWcuwQ&oe=69072F6E',
+          imageUrl: '/images/art/digital/Dodge-48.png',
           valid: true
-        },
-        {
-          id: 2,
-          title: 'Retrato digital 2',
-          description: 'Una nebulosa de emociones y colores',
-          instagramUrl: 'https://www.instagram.com/p/CpjG19uLqVo/',
-          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/503062628_17960587496938282_5637281132442241441_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=105&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfduYij2Ran-qn4rsrrMmY1xmLrmlwQRxVeRAIcdGDoCTA&oe=69072DD9',
-          valid: true
-        },
-        {
-          id: 3,
-          title: 'Arte digital 3',
-          description: 'Composición abstracta con colores vibrantes',
-          instagramUrl: 'https://www.instagram.com/p/example3/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 4,
-          title: 'Arte digital 4',
-          description: 'Formas geométricas en movimiento',
-          instagramUrl: 'https://www.instagram.com/p/example4/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 5,
-          title: 'Arte digital 5',
-          description: 'Retrato con efectos de luz',
-          instagramUrl: 'https://www.instagram.com/p/example5/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 6,
-          title: 'Arte digital 6',
-          description: 'Exploración de texturas digitales',
-          instagramUrl: 'https://www.instagram.com/p/example6/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 7,
-          title: 'Arte digital 7',
-          description: 'Composición minimalista',
-          instagramUrl: 'https://www.instagram.com/p/example7/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 8,
-          title: 'Arte digital 8',
-          description: 'Arte conceptual digital',
-          instagramUrl: 'https://www.instagram.com/p/example8/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 9,
-          title: 'Arte digital 9',
-          description: 'Exploración de colores primarios',
-          instagramUrl: 'https://www.instagram.com/p/example9/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 10,
-          title: 'Arte digital 10',
-          description: 'Arte digital experimental',
-          instagramUrl: 'https://www.instagram.com/p/example10/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
         }
       ]
     },
@@ -108,83 +36,59 @@ const ArtGallerySection = () => {
       artworks: [
         {
           id: 1,
-          title: 'Óleo - Retrato femenino',
-          description: 'Capturando la magia del Río de la Plata',
+          title: 'Bailarina',
+          description: 'Capturando la magia del movimiento en óleo',
           instagramUrl: 'https://www.instagram.com/p/CvN-1kbpPvQ/',
-          imageUrl: 'https://www.instagram.com/p/CvN-1kbpPvQ/?utm_source=ig_web_copy_link',
+          imageUrl: '/images/art/oleo/Bailarina.png',
           valid: true
         },
         {
           id: 2,
-          title: 'Óleo - Mirada profunda',
+          title: 'Retrato híper realista Franco',
           description: 'Emociones plasmadas en pinceladas',
-          instagramUrl: 'https://www.instagram.com/p/CpjGUqfLLc_/',
-          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/476457232_17946803936938282_1927127866501663697_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=106&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_Afd-23tungAC43I3CkK3pyQ4IGEatg6VTA4rGtv9Iky12A&oe=69070741',
+          instagramUrl: 'https://www.instagram.com/p/CuDauTqrZrh/',
+          imageUrl: '/images/art/oleo/Retrato híper realista Franco.png',
           valid: true
         },
         {
           id: 3,
-          title: 'Óleo - Paisaje urbano',
-          description: 'Montevideo en colores cálidos',
-          instagramUrl: 'https://www.instagram.com/p/example3/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
+          title: 'Amor padre e hija',
+          description: 'La conexión más pura capturada en óleo',
+          instagramUrl: 'https://www.instagram.com/p/CskbWE_LNVf/',
+          imageUrl: '/images/art/oleo/Retrato híper realista "Amor padre e hija".png',
+          valid: true
         },
         {
           id: 4,
-          title: 'Óleo - Naturaleza muerta',
-          description: 'Objetos cotidianos en óleo',
-          instagramUrl: 'https://www.instagram.com/p/example4/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
+          title: 'Miguel Ángel Pop',
+          description: 'Clásico renacentista con toque moderno',
+          instagramUrl: 'https://www.instagram.com/p/CpjGUqfLLc_/',
+          imageUrl: '/images/art/oleo/Miguel Ángel pop.png',
+          valid: true
         },
         {
           id: 5,
-          title: 'Óleo - Retrato masculino',
-          description: 'Estudio de luces y sombras',
-          instagramUrl: 'https://www.instagram.com/p/example5/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
+          title: 'Hakuna Matata',
+          description: 'La filosofía de vida en colores vibrantes',
+          instagramUrl: 'https://www.instagram.com/p/Cpkn81rLRbS/',
+          imageUrl: '/images/art/oleo/Hakuna Matata.png',
+          valid: true
         },
         {
           id: 6,
-          title: 'Óleo - Mar y cielo',
-          description: 'Horizonte infinito en óleo',
-          instagramUrl: 'https://www.instagram.com/p/example6/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
+          title: 'La mirada de papá',
+          description: 'Profundidad emocional en cada trazo',
+          instagramUrl: 'https://www.instagram.com/p/CpjG19uLqVo/',
+          imageUrl: '/images/art/oleo/Retrato híper realista "la mirada de papá".png',
+          valid: true
         },
         {
           id: 7,
-          title: 'Óleo - Flores silvestres',
-          description: 'Botánica en pinceladas suaves',
-          instagramUrl: 'https://www.instagram.com/p/example7/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 8,
-          title: 'Óleo - Arquitectura colonial',
-          description: 'Patrimonio histórico en óleo',
-          instagramUrl: 'https://www.instagram.com/p/example8/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 9,
-          title: 'Óleo - Atardecer',
-          description: 'Momento dorado capturado',
-          instagramUrl: 'https://www.instagram.com/p/example9/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 10,
-          title: 'Óleo - Abstracto',
-          description: 'Emociones en movimiento',
-          instagramUrl: 'https://www.instagram.com/p/example10/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
+          title: 'Un suspiro',
+          description: 'Momento de tranquilidad en óleo',
+          instagramUrl: 'https://www.instagram.com/p/CpMRARysv06/',
+          imageUrl: '/images/art/oleo/Un suspiro.png',
+          valid: true
         }
       ]
     },
@@ -196,83 +100,11 @@ const ArtGallerySection = () => {
       artworks: [
         {
           id: 1,
-          title: 'Retrato a lápiz 1',
+          title: 'Harry Styles B&N',
           description: 'La simplicidad del grafito',
           instagramUrl: 'https://www.instagram.com/p/CpkoIGuLD4g/',
-          imageUrl: 'https://scontent.cdninstagram.com/v/t39.30808-6/444481763_17915009348938282_8905329265676614816_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=103&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_Afeo1HjUmt4oFbL5kQrMPWjSvzXeFD6KJFc6QKHNW-uB1A&oe=6907086A',
+          imageUrl: '/images/art/lapiz/harry-styles-bn.jpg',
           valid: true
-        },
-        {
-          id: 2,
-          title: 'Retrato a lápiz 2',
-          description: 'Cada línea cuenta una historia',
-          instagramUrl: 'https://www.instagram.com/p/CpMQh-esIXC/',
-          imageUrl: 'https://scontent.cdninstagram.com/v/t51.75761-15/470951725_17941612124938282_7667119843937668843_n.jpg?stp=dst-jpg_e35_p640x640_sh0.08_tt6&_nc_cat=102&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&oh=00_AfcB4S3A2xTK5TulWC1K3sAKL9gSbahmAUC5I7SIJy6Tig&oe=690707F2',
-          valid: true
-        },
-        {
-          id: 3,
-          title: 'Dibujo arquitectónico',
-          description: 'Líneas precisas y proporciones',
-          instagramUrl: 'https://www.instagram.com/p/example3/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 4,
-          title: 'Estudio anatómico',
-          description: 'Forma humana en grafito',
-          instagramUrl: 'https://www.instagram.com/p/example4/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 5,
-          title: 'Naturaleza en lápiz',
-          description: 'Texturas naturales',
-          instagramUrl: 'https://www.instagram.com/p/example5/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 6,
-          title: 'Retrato clásico',
-          description: 'Técnica tradicional',
-          instagramUrl: 'https://www.instagram.com/p/example6/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 7,
-          title: 'Dibujo expresivo',
-          description: 'Emociones en trazos',
-          instagramUrl: 'https://www.instagram.com/p/example7/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 8,
-          title: 'Estudio de manos',
-          description: 'Detalle y precisión',
-          instagramUrl: 'https://www.instagram.com/p/example8/',
-          imageUrl: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 9,
-          title: 'Paisaje urbano',
-          description: 'Montevideo en grafito',
-          instagramUrl: 'https://www.instagram.com/p/example9/',
-          imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop&crop=center',
-          valid: false
-        },
-        {
-          id: 10,
-          title: 'Dibujo abstracto',
-          description: 'Formas libres en lápiz',
-          instagramUrl: 'https://www.instagram.com/p/example10/',
-          imageUrl: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop&crop=center',
-          valid: false
         }
       ]
     }
@@ -284,7 +116,11 @@ const ArtGallerySection = () => {
 
   const handleArtworkClick = (artwork) => {
     if (artwork.valid && artwork.instagramUrl) {
+      // Abrir enlace específico del post
       window.open(artwork.instagramUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      // Redirigir al perfil general de Instagram
+      window.open('https://www.instagram.com/cande_mangino.arte/', '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -494,7 +330,7 @@ const ArtGallerySection = () => {
                   {category.artworks.map((artwork, artworkIndex) => (
                     <SwiperSlide key={artwork.id}>
                       <motion.div
-                        className={`artwork-card ${artwork.valid ? 'clickable' : 'non-clickable'}`}
+                        className="artwork-card clickable"
                         onMouseEnter={() => setHoveredArtwork(artwork.id)}
                         onMouseLeave={() => setHoveredArtwork(null)}
                         onClick={() => handleArtworkClick(artwork)}
@@ -510,12 +346,12 @@ const ArtGallerySection = () => {
                           scale: 1.05,
                           transition: { duration: 0.3, ease: "easeOut" }
                         }}
-                        whileTap={{ scale: artwork.valid ? 0.98 : 1 }}
+                        whileTap={{ scale: 0.98 }}
                       >
                         <motion.div 
                           className="artwork-glow"
                           initial={{ opacity: 0 }}
-                          whileHover={{ opacity: artwork.valid ? 1 : 0 }}
+                          whileHover={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
                           style={{ 
                             background: `linear-gradient(135deg, ${category.color}30, ${category.color}10)`
