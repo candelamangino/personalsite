@@ -21,10 +21,11 @@ const ExperienceSection = () => {
     {
       id: 'nasa',
       title: 'NASA Space Apps Challenge',
-      description: 'Fue una experiencia increíble. Me encantó aplicar mi creatividad para idear soluciones a problemas reales. Descubrí que la innovación y la imaginación son mis mayores fortalezas.',
+      description: 'Fue una experiencia increíble. Me encantó aplicar mi creatividad para idear soluciones a problemas reales. Descubrí que la innovación y la imaginación son mis mayores fortalezas. Nuestro equipo ganó el desafío nacional de esta prestigiosa competencia de la NASA.',
       period: '2023',
       type: 'Hackathon',
-      hasReviews: false
+      hasReviews: false,
+      ucuArticleUrl: 'https://www.ucu.edu.uy/Institucionales/Estudiantes-de-UCU-ganaron-desafio-nacional-de-competencia-de-la-NASA-uc3468'
     },
     {
       id: 'university',
@@ -164,6 +165,57 @@ const ExperienceSection = () => {
                 transition={{ duration: 0.4, ease: "easeInOut" }}
               >
                 <p className="experience-description">{exp.description}</p>
+                
+                {exp.ucuArticleUrl && hoveredExperience === exp.id && (
+                  <motion.div
+                    className="ucu-article-link-container"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <motion.a
+                      href={exp.ucuArticleUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ucu-article-link"
+                      aria-label="Abrir artículo oficial de la UCU sobre la NASA Space Apps"
+                      whileHover={{ 
+                        scale: 1.05,
+                        y: -2,
+                        transition: { duration: 0.2 }
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <motion.span 
+                        className="ucu-article-text"
+                        whileHover={{ x: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        Ver nota oficial en UCU
+                      </motion.span>
+                      <motion.span 
+                        className="ucu-article-icon"
+                        whileHover={{ 
+                          x: 3, 
+                          y: -3,
+                          rotate: 15,
+                          scale: 1.2,
+                          transition: { duration: 0.2 }
+                        }}
+                        animate={{ 
+                          rotate: [0, 5, 0],
+                          transition: { 
+                            duration: 2, 
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }
+                        }}
+                      >
+                        ↗️
+                      </motion.span>
+                    </motion.a>
+                  </motion.div>
+                )}
                 
                 {exp.hasReviews && hoveredExperience === exp.id && (
                   <motion.div 
