@@ -33,9 +33,9 @@ const AboutMeSection = () => {
       <div className="section-container">
         <motion.div 
           className="section-header reveal"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "power2.out" }}
+          transition={{ duration: 0.5, ease: "power2.out" }}
           viewport={{ once: true }}
         >
           <h2 className="section-title">Sobre mí</h2>
@@ -52,27 +52,30 @@ const AboutMeSection = () => {
               className={`interactive-card ${hoveredCard === card.id ? 'expanded' : ''}`}
               onMouseEnter={() => setHoveredCard(card.id)}
               onMouseLeave={() => setHoveredCard(null)}
+              onClick={() => setHoveredCard(prev => (prev === card.id ? null : card.id))}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.02 }}
             >
-              <div className="card-header">
+              <motion.div 
+                className="card-header"
+                initial={false}
+                animate={{ y: hoveredCard === card.id ? -6 : 0 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
+              >
                 <span className="card-icon" style={{ color: card.color }}>
                   {card.icon}
                 </span>
                 <h3 className="card-title">{card.title}</h3>
-              </div>
-              
+              </motion.div>
+
               <motion.div 
                 className="card-content"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ 
-                  height: hoveredCard === card.id ? 'auto' : 0,
-                  opacity: hoveredCard === card.id ? 1 : 0
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                initial={false}
+                animate={{ height: hoveredCard === card.id ? 'auto' : 0 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
               >
                 <p className="card-description">{card.description}</p>
               </motion.div>

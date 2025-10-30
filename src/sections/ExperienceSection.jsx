@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { ExternalOpen } from '../components/Icons';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -123,9 +124,9 @@ const ExperienceSection = () => {
       <div className="section-container">
         <motion.div 
           className="section-header reveal"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "power2.out" }}
+          transition={{ duration: 0.5, ease: "power2.out" }}
           viewport={{ once: true }}
         >
           <h2 className="section-title">Mi experiencia</h2>
@@ -211,7 +212,7 @@ const ExperienceSection = () => {
                           }
                         }}
                       >
-                        ↗️
+                        <ExternalOpen className="icon-ext" />
                       </motion.span>
                     </motion.a>
                   </motion.div>
@@ -385,7 +386,7 @@ const ExperienceSection = () => {
                                       }
                                     }}
                                   >
-                                    ↗️
+                                    <ExternalOpen className="icon-ext" />
                                   </motion.span>
                                 </motion.a>
                               </motion.div>

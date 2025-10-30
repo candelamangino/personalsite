@@ -48,9 +48,9 @@ const ProjectsSection = () => {
       <div className="section-container">
         <motion.div 
           className="section-header reveal"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "power2.out" }}
+          transition={{ duration: 0.5, ease: "power2.out" }}
           viewport={{ once: true }}
         >
           <h2 className="section-title">Proyectos en desarrollo</h2>

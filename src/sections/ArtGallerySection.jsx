@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { ExternalOpen } from '../components/Icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -432,7 +433,7 @@ const ArtGallerySection = () => {
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
                               >
-                                <span className="instagram-icon">↗️</span>
+                                <span className="instagram-icon"><ExternalOpen className="icon-ext" /></span>
                               </motion.div>
                             </motion.div>
                           )}
@@ -494,7 +495,7 @@ const ArtGallerySection = () => {
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              ↗️
+              <ExternalOpen className="icon-ext" />
             </motion.span>
           </motion.a>
         </motion.div>

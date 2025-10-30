@@ -295,10 +295,12 @@ body {
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all var(--transition-normal);
+  transition: all 0.45s ease-in-out;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .interactive-card:hover {
@@ -309,7 +311,19 @@ body {
 .card-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--spacing-md);
+  text-align: center;
+  transition: transform 0.45s ease-in-out, margin 0.45s ease-in-out;
+}
+
+.interactive-card:not(.expanded) .card-header {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.interactive-card.expanded .card-header {
+  margin-top: 0;
   margin-bottom: var(--spacing-md);
 }
 
@@ -321,10 +335,23 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--color-text-primary);
+  transition: transform 0.45s ease-in-out;
+}
+
+.interactive-card.expanded .card-title {
+  transform: translateY(-12px);
 }
 
 .card-content {
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s ease-in-out, transform 0.45s ease-in-out;
+}
+
+.interactive-card.expanded .card-content {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card-description {
@@ -350,6 +377,99 @@ body {
   padding: var(--spacing-xl);
   text-align: center;
   margin-top: var(--spacing-xl);
+}
+
+/* Philosophy Section (cinematic) */
+.philosophy-section { position: relative; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #0e0e10, #121314); }
+
+.philosophy-pin { position: relative; height: 100%; }
+.philosophy-track { position: relative; display: inline-block; white-space: nowrap; will-change: transform; padding-inline: clamp(24px, 4vw, 48px); }
+
+.philosophy-title {
+  position: relative;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  z-index: 2;
+}
+
+.philosophy-title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: sweep 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sweep {
+  0% { left: -50%; }
+  100% { left: 120%; }
+}
+
+.philosophy-word {
+  display: inline-block;
+  margin-right: 0.5ch;
+  will-change: transform;
+}
+
+.floating-icons {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.icon {
+  position: absolute;
+  opacity: 0.15;
+  filter: blur(1px);
+  mix-blend-mode: screen;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+}
+
+.icon.gear { top: 10%; left: 8%; }
+.icon.bulb { bottom: 12%; right: 10%; }
+.icon.code { top: 50%; right: 25%; }
+
+.philosophy-visual { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 0; }
+
+#philosophy-3d { width: 70vw; max-width: 880px; height: 40vh; display: block; opacity: 0.9; }
+
+.philosophy-fallback {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Los títulos nunca se ocultan después de aparecer */
+.section h2,
+.section .section-title {
+  opacity: 1 !important;
+  will-change: transform, opacity;
+}
+
+/* MUI icon helpers */
+.icon-ext, .icon-arrow { vertical-align: middle; opacity: .9; transition: transform .2s ease, opacity .2s ease; }
+a:hover .icon-ext { transform: translate(2px, -2px); }
+button:hover .icon-arrow { transform: translateX(2px); }
+
+@media (max-width: 768px) {
+  .philosophy-section { height: auto; }
+  .philosophy-track { white-space: normal; }
+  .philosophy-title {
+    text-align: center;
+  }
+  .floating-icons .icon {
+    transform: translateY(0);
+  }
 }
 
 .highlight-content h3 {

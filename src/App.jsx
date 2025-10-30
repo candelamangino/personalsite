@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HomeSection from './sections/HomeSection';
 import AboutMeSection from './sections/AboutMeSection';
+import PhilosophySection from './sections/PhilosophySection';
 import ExperienceSection from './sections/ExperienceSection';
 import ArtGallerySection from './sections/ArtGallerySection';
 import ProjectsSection from './sections/ProjectsSection';
@@ -67,6 +68,7 @@ function App() {
       <main>
         <HomeSection />
         <AboutMeSection />
+        <PhilosophySection />
         <ExperienceSection />
         <ArtGallerySection />
         <ProjectsSection />
