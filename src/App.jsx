@@ -26,13 +26,13 @@ function App() {
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
+          duration: 0.6,
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 80%",
+            start: "top 92%",
             end: "bottom 20%",
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none"
           }
         }
       );
@@ -45,12 +45,12 @@ function App() {
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.5,
           ease: "power2.out",
           scrollTrigger: {
             trigger: element,
-            start: "top 85%",
-            toggleActions: "play none none reverse"
+            start: "top 90%",
+            toggleActions: "play none none none"
           }
         }
       );

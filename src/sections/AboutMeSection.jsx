@@ -92,21 +92,7 @@ const AboutMeSection = () => {
           ))}
         </div>
 
-        <motion.div 
-          className="about-highlight reveal"
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="highlight-content">
-            <h3>Mi filosofía</h3>
-            <p>
-              "Creo que la tecnología debe ser intuitiva, hermosa y accesible. 
-              Cada línea de código que escribo es una oportunidad de crear algo que mejore la vida de las personas."
-            </p>
-          </div>
-        </motion.div>
+        
       </div>
     </section>
   );

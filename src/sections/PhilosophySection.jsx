@@ -32,62 +32,53 @@ export default function PhilosophySection() {
     const pinEl = sectionEl?.querySelector('.philosophy-pin');
     const trackEl = containerRef.current;
     const words = wordsRef.current;
-    if (!sectionEl || !pinEl || !trackEl || !words || words.length === 0) return;
+    if (!sectionEl || !pinEl || !trackEl) return;
 
     const ctx = gsap.context(() => {
-      // Entrada más ágil de palabras
-      gsap.fromTo(words,
-        { opacity: 0, y: 24 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.02, scrollTrigger: { trigger: sectionEl, start: 'top 90%' } }
-      );
+      // Entrada más ágil inicial del track (sólo para primera vista)
+      gsap.fromTo(trackEl, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', scrollTrigger: { trigger: sectionEl, start: 'top 90%' } });
 
       if (!isMobile) {
-        const distance = () => Math.max(0, trackEl.scrollWidth - window.innerWidth + 120);
+        const naturalDistance = () => Math.max(0, trackEl.scrollWidth - window.innerWidth + 160);
+        const endDistance = () => {
+          const d = naturalDistance();
+          return Math.max(1500, Math.min(2000, d));
+        };
 
-        // Scroll horizontal real con pin en wrapper
-        gsap.to(trackEl, {
-          x: () => -distance(),
-          ease: 'none',
+        // Timeline maestro al estilo GSAP.com
+        const tl = gsap.timeline({
+          defaults: { ease: 'none' },
           scrollTrigger: {
             trigger: pinEl,
             start: 'top top',
-            end: () => `+=${distance()}`,
+            end: () => `+=${endDistance()}`,
             scrub: 0.3,
             pin: true,
             anticipatePin: 1,
           }
         });
 
-        // Micro-movimientos por palabra
-        words.forEach((el, i) => {
-          const r = (i % 2 ? -1 : 1) * 2.5;
-          const y = (i % 3 ? -1 : 1) * 5;
-          gsap.to(el, {
-            rotate: r,
-            y: y,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: pinEl,
-              start: 'top top',
-              end: () => `+=${distance()}`,
-              scrub: 0.3,
-            }
+        // Desplazamiento horizontal del track hacia la derecha
+        tl.to(trackEl, { x: () => naturalDistance() }, 0);
+
+        // Aparición rápida de palabras + flotación sutil
+        if (words && words.length) {
+          gsap.fromTo(words,
+            { opacity: 0, y: 20, scale: 0.96, filter: 'blur(2px)' },
+            { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out', stagger: 0.03,
+              scrollTrigger: { trigger: pinEl, start: 'top 95%' } }
+          );
+          words.forEach((el, i) => {
+            const r = (i % 2 ? -1 : 1) * 2.5;
+            const y = (i % 3 ? -1 : 1) * 5;
+            tl.to(el, { rotate: r, y, duration: 0.6 }, 0);
           });
-        });
+        }
 
         // Parallax de íconos
-        gsap.to('.philosophy-section .icon.gear', {
-          y: -40, rotate: -10, ease: 'none',
-          scrollTrigger: { trigger: pinEl, start: 'top top', end: () => `+=${distance()}`, scrub: true }
-        });
-        gsap.to('.philosophy-section .icon.bulb', {
-          y: 30, rotate: 8, ease: 'none',
-          scrollTrigger: { trigger: pinEl, start: 'top top', end: () => `+=${distance()}`, scrub: true }
-        });
-        gsap.to('.philosophy-section .icon.code', {
-          y: -20, rotate: 6, ease: 'none',
-          scrollTrigger: { trigger: pinEl, start: 'top top', end: () => `+=${distance()}`, scrub: true }
-        });
+        tl.to('.philosophy-section .icon.gear', { y: -40, rotate: -10 }, 0);
+        tl.to('.philosophy-section .icon.bulb', { y: 30, rotate: 8 }, 0.2);
+        tl.to('.philosophy-section .icon.code', { y: -20, rotate: 6 }, 0.4);
       }
     }, sectionEl);
 
@@ -119,13 +110,13 @@ export default function PhilosophySection() {
         const camera = new PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
         camera.position.z = 8;
 
-        const ambient = new AmbientLight(new Color(0xffffff), 0.6);
-        const dir = new DirectionalLight(new Color(0xffffff), 0.8);
+        const ambient = new AmbientLight(new Color(0xffffff), 0.75);
+        const dir = new DirectionalLight(new Color(0xffffff), 1.2);
         dir.position.set(3, 5, 2);
         scene.add(ambient, dir);
 
-        const geometry = new IcosahedronGeometry(2.2, 1);
-        const material = new MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.25, roughness: 0.2, metalness: 0.6 });
+        const geometry = new IcosahedronGeometry(2.6, 1);
+        const material = new MeshStandardMaterial({ color: 0xffffff, transparent: true, opacity: 0.3, roughness: 0.15, metalness: 0.8 });
         const mesh = new Mesh(geometry, material);
         scene.add(mesh);
 
@@ -157,6 +148,7 @@ export default function PhilosophySection() {
 
         const animate = () => {
           if (disposed) return;
+          dir.intensity = 0.9 + scrollProgress * 0.5;
           mesh.rotation.x += 0.0025;
           mesh.rotation.y += 0.0018 + scrollProgress * 0.02;
           renderer.render(scene, camera);
@@ -189,42 +181,41 @@ export default function PhilosophySection() {
     <section ref={sectionRef} className="section philosophy-section">
       <div className="philosophy-pin">
         <motion.div ref={containerRef} className="philosophy-track" initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: 'power2.out' }}>
-        <h2 className="philosophy-title">
-          {PHRASE.split(' ').map((word, i) => (
-            <motion.span
-              key={i}
-              className="philosophy-word"
-              ref={(el) => (wordsRef.current[i] = el)}
-            >
-              {word}
-            </motion.span>
-          ))}
-        </h2>
+          <h2 className="philosophy-heading">Mi filosofía</h2>
+          <div className="philosophy-row">
+            <div className="ph-line">
+              {PHRASE.split(' ').map((word, wi) => (
+                <motion.span key={wi} className="philosophy-word" ref={(el) => (wordsRef.current[wi] = el)}>
+                  {word}
+                </motion.span>
+              ))}
+            </div>
+          </div>
 
-        <div className="floating-icons">
-          <motion.div className="icon gear">⚙️</motion.div>
-          <motion.div className="icon bulb">💡</motion.div>
-          <motion.div className="icon code">{`{}`}</motion.div>
-        </div>
+          <div className="floating-icons">
+            <motion.div className="icon gear">⚙️</motion.div>
+            <motion.div className="icon bulb">💡</motion.div>
+            <motion.div className="icon code">{`{}`}</motion.div>
+          </div>
 
-        <div className="philosophy-visual">
-          {!isMobile ? (
-            <canvas id="philosophy-3d" ref={canvasRef} />
-          ) : (
-            <svg className="philosophy-fallback" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
-              <defs>
-                <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="rgba(255,255,255,0.0)" />
-                  <stop offset="50%" stopColor="rgba(255,255,255,0.5)" />
-                  <stop offset="100%" stopColor="rgba(255,255,255,0.0)" />
-                </linearGradient>
-              </defs>
-              <path d="M0 150 C 150 50, 300 250, 600 100" stroke="url(#glow)" strokeWidth="3" fill="none">
-                <animate attributeName="stroke-dasharray" values="0,1000; 1000,0; 0,1000" dur="6s" repeatCount="indefinite" />
-              </path>
-            </svg>
-          )}
-        </div>
+          <div className="philosophy-visual">
+            {!isMobile ? (
+              <canvas id="philosophy-3d" ref={canvasRef} />
+            ) : (
+              <svg className="philosophy-fallback" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="rgba(255,255,255,0.0)" />
+                    <stop offset="50%" stopColor="rgba(255,255,255,0.5)" />
+                    <stop offset="100%" stopColor="rgba(255,255,255,0.0)" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 150 C 150 50, 300 250, 600 100" stroke="url(#glow)" strokeWidth="3" fill="none">
+                  <animate attributeName="stroke-dasharray" values="0,1000; 1000,0; 0,1000" dur="6s" repeatCount="indefinite" />
+                </path>
+              </svg>
+            )}
+          </div>
         </motion.div>
       </div>
     </section>

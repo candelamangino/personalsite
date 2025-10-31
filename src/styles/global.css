@@ -1,3 +1,12 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'Bromelia';
+  src: url('/fonts/Bromelia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Apple-style Design System */
 :root {
   /* Colors - Apple inspired palette */
@@ -218,6 +227,7 @@ body {
 }
 
 .hero-subtitle {
+  font-family: 'Bromelia', sans-serif;
   font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-xl);
@@ -381,9 +391,13 @@ body {
 
 /* Philosophy Section (cinematic) */
 .philosophy-section { position: relative; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #0e0e10, #121314); }
+.philosophy-section::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.06), transparent 60%); filter: blur(40px); pointer-events: none; }
 
 .philosophy-pin { position: relative; height: 100%; }
 .philosophy-track { position: relative; display: inline-block; white-space: nowrap; will-change: transform; padding-inline: clamp(24px, 4vw, 48px); }
+.philosophy-row { display: inline-flex; align-items: center; gap: clamp(48px, 12vw, 160px); }
+.ph-line { display: inline-flex; gap: 0.8ch; align-items: baseline; font-size: clamp(2rem, 4.8vw, 3.6rem); letter-spacing: 0.01em; line-height: 1.15; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+.philosophy-heading { position: sticky; top: clamp(16px, 4vh, 32px); left: 0; width: 100%; text-align: center; font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 clamp(24px, 3vh, 40px) 0; z-index: 2; color: #fff; text-shadow: 0 6px 24px rgba(0,0,0,0.5); }
 
 .philosophy-title {
   position: relative;
@@ -464,9 +478,8 @@ button:hover .icon-arrow { transform: translateX(2px); }
 @media (max-width: 768px) {
   .philosophy-section { height: auto; }
   .philosophy-track { white-space: normal; }
-  .philosophy-title {
-    text-align: center;
-  }
+  .philosophy-heading { position: static; text-align: center; margin-bottom: 16px; }
+  .ph-line { flex-wrap: wrap; justify-content: center; font-size: clamp(1.3rem, 5vw, 1.6rem); }
   .floating-icons .icon {
     transform: translateY(0);
   }
