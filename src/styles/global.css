@@ -392,7 +392,7 @@ body {
 
 /* Philosophy Section (cinematic) */
 .philosophy-section { position: relative; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #0e0e10, #121314); }
-.philosophy-section::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.06), transparent 60%); filter: blur(20px); pointer-events: none; }
+.philosophy-section::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.06), transparent 60%); filter: blur(8px); pointer-events: none; }
 
 .philosophy-pin { position: relative; height: 100%; }
 .philosophy-track { position: relative; display: inline-block; white-space: nowrap; will-change: transform; padding-inline: clamp(24px, 4vw, 48px); }
@@ -673,7 +673,7 @@ button:hover .icon-arrow { transform: translateX(2px); }
     rgba(0, 122, 255, 0.3)
   );
   border-radius: var(--radius-lg);
-  filter: blur(8px);
+  filter: blur(4px);
   z-index: -2;
   opacity: 0;
   transition: opacity var(--transition-normal);
@@ -1024,7 +1024,7 @@ button:hover .icon-arrow { transform: translateX(2px); }
   right: -2px;
   bottom: -2px;
   border-radius: var(--radius-lg);
-  filter: blur(8px);
+  filter: blur(4px);
   z-index: -2;
   opacity: 0;
   transition: opacity var(--transition-normal);
