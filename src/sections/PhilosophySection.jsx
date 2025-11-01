@@ -39,11 +39,7 @@ export default function PhilosophySection() {
       gsap.fromTo(trackEl, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', scrollTrigger: { trigger: sectionEl, start: 'top 90%' } });
 
       if (!isMobile) {
-        const naturalDistance = () => Math.max(0, trackEl.scrollWidth - window.innerWidth + 160);
-        const endDistance = () => {
-          const d = naturalDistance();
-          return Math.max(1500, Math.min(2000, d));
-        };
+        const distance = () => Math.max(0, trackEl.scrollWidth - window.innerWidth + 200);
 
         // Timeline maestro al estilo GSAP.com
         const tl = gsap.timeline({
@@ -51,15 +47,15 @@ export default function PhilosophySection() {
           scrollTrigger: {
             trigger: pinEl,
             start: 'top top',
-            end: () => `+=${endDistance()}`,
-            scrub: 0.3,
+            end: () => `+=${distance()}`,
             pin: true,
+            scrub: 0.4,
             anticipatePin: 1,
           }
         });
 
-        // Desplazamiento horizontal del track hacia la derecha
-        tl.to(trackEl, { x: () => naturalDistance() }, 0);
+        // Desplazamiento horizontal del track hacia la izquierda
+        tl.to(trackEl, { x: () => -distance(), ease: 'none' }, 0);
 
         // Aparición rápida de palabras + flotación sutil
         if (words && words.length) {

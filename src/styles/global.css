@@ -77,7 +77,7 @@ body {
   background: var(--color-bg-primary);
   color: var(--color-text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: visible;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -391,7 +391,7 @@ body {
 }
 
 /* Philosophy Section (cinematic) */
-.philosophy-section { position: relative; height: 100vh; overflow: hidden; background: linear-gradient(180deg, #0e0e10, #121314); }
+.philosophy-section { position: relative; height: 100vh; overflow: visible; background: linear-gradient(180deg, #0e0e10, #121314); }
 .philosophy-section::before { content: ""; position: absolute; inset: -20%; background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,0.06), transparent 60%); filter: blur(8px); pointer-events: none; }
 
 .philosophy-pin { position: relative; height: 100%; }
