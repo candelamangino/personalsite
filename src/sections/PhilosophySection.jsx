@@ -64,8 +64,8 @@ export default function PhilosophySection() {
         // Aparición rápida de palabras + flotación sutil
         if (words && words.length) {
           gsap.fromTo(words,
-            { opacity: 0, y: 20, scale: 0.96, filter: 'blur(2px)' },
-            { opacity: 1, y: 0, scale: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power2.out', stagger: 0.03,
+            { opacity: 0, y: 20, scale: 0.96 },
+            { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out', stagger: 0.03,
               scrollTrigger: { trigger: pinEl, start: 'top 95%' } }
           );
           words.forEach((el, i) => {
@@ -120,7 +120,7 @@ export default function PhilosophySection() {
         const mesh = new Mesh(geometry, material);
         scene.add(mesh);
 
-        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         const resize = () => {
           const w = canvas.clientWidth;
           const h = canvas.clientHeight;
